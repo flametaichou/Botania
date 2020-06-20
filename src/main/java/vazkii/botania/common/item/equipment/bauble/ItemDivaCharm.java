@@ -35,8 +35,6 @@ import vazkii.botania.common.Botania;
 import vazkii.botania.common.block.subtile.functional.SubTileHeiseiDream;
 import vazkii.botania.common.lib.LibItemNames;
 import vazkii.botania.common.lib.LibObfuscation;
-import baubles.api.BaubleType;
-import baubles.common.lib.PlayerHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
@@ -53,7 +51,9 @@ public class ItemDivaCharm extends ItemBauble implements IManaUsingItem, IBauble
 	public void onEntityDamaged(LivingHurtEvent event) {
 		if(event.source.getEntity() instanceof EntityPlayer && event.entityLiving instanceof EntityLiving && !event.entityLiving.worldObj.isRemote && Math.random() < 0.6F) {
 			EntityPlayer player = (EntityPlayer) event.source.getEntity();
-			ItemStack amulet = PlayerHandler.getPlayerBaubles(player).getStackInSlot(0);
+			//ItemStack amulet = PlayerHandler.getPlayerBaubles(player).getStackInSlot(0);
+
+			ItemStack amulet = null;
 			if(amulet != null && amulet.getItem() == this) {
 				final int cost = 250;
 				if(ManaItemHandler.requestManaExact(amulet, player, cost, false)) {
@@ -84,10 +84,12 @@ public class ItemDivaCharm extends ItemBauble implements IManaUsingItem, IBauble
 		}
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack arg0) {
 		return BaubleType.AMULET;
 	}
+	*/
 
 	@Override
 	public boolean usesMana(ItemStack stack) {

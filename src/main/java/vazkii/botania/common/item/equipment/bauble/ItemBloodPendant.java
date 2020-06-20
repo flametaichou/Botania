@@ -44,7 +44,6 @@ import vazkii.botania.client.core.handler.ClientTickHandler;
 import vazkii.botania.client.core.helper.IconHelper;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
 
 public class ItemBloodPendant extends ItemBauble implements IBrewContainer, IBrewItem, IManaUsingItem, IBaubleRender {
 
@@ -121,10 +120,12 @@ public class ItemBloodPendant extends ItemBauble implements IBrewContainer, IBre
 		}
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack arg0) {
 		return BaubleType.AMULET;
 	}
+	*/
 
 	@Override
 	public void onWornTick(ItemStack stack, EntityLivingBase player) {

@@ -38,11 +38,6 @@ import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.item.equipment.tool.ToolCommons;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
-import baubles.common.container.InventoryBaubles;
-import baubles.common.lib.PlayerHandler;
-import baubles.common.network.PacketHandler;
-import baubles.common.network.PacketSyncBauble;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -72,6 +67,7 @@ public class ItemLokiRing extends ItemRelicBauble implements IExtendedWireframeC
 			return;
 
 		int slot = -1;
+		/*
 		InventoryBaubles inv = PlayerHandler.getPlayerBaubles(player);
 		for(int i = 0; i < inv.getSizeInventory(); i++) {
 			ItemStack stack = inv.getStackInSlot(i);
@@ -80,6 +76,7 @@ public class ItemLokiRing extends ItemRelicBauble implements IExtendedWireframeC
 				break;
 			}
 		}
+		*/
 
 		ItemStack heldItemStack = player.getCurrentEquippedItem();
 		ChunkCoordinates originCoords = getOriginPos(lokiRing);
@@ -93,13 +90,13 @@ public class ItemLokiRing extends ItemRelicBauble implements IExtendedWireframeC
 			if(originCoords.posY == -1 && lookPos != null) {
 				setOriginPos(lokiRing, lookPos.blockX, lookPos.blockY, lookPos.blockZ);
 				setCursorList(lokiRing, null);
-				if(player instanceof EntityPlayerMP)
-					PacketHandler.INSTANCE.sendTo(new PacketSyncBauble(player, slot), (EntityPlayerMP) player);
+				if(player instanceof EntityPlayerMP) {}
+					//PacketHandler.INSTANCE.sendTo(new PacketSyncBauble(player, slot), (EntityPlayerMP) player);
 			} else if(lookPos != null) {
 				if(originCoords.posX == lookPos.blockX && originCoords.posY == lookPos.blockY && originCoords.posZ == lookPos.blockZ) {
 					setOriginPos(lokiRing, 0, -1, 0);
-					if(player instanceof EntityPlayerMP)
-						PacketHandler.INSTANCE.sendTo(new PacketSyncBauble(player, slot), (EntityPlayerMP) player);
+					if(player instanceof EntityPlayerMP) {}
+						//PacketHandler.INSTANCE.sendTo(new PacketSyncBauble(player, slot), (EntityPlayerMP) player);
 				} else {
 					addCursor : {
 					int relX = lookPos.blockX - originCoords.posX;
@@ -110,14 +107,14 @@ public class ItemLokiRing extends ItemRelicBauble implements IExtendedWireframeC
 						if(cursor.posX == relX && cursor.posY == relY && cursor.posZ == relZ) {
 							cursors.remove(cursor);
 							setCursorList(lokiRing, cursors);
-							if(player instanceof EntityPlayerMP)
-								PacketHandler.INSTANCE.sendTo(new PacketSyncBauble(player, slot), (EntityPlayerMP) player);
+							if(player instanceof EntityPlayerMP) {}
+								//PacketHandler.INSTANCE.sendTo(new PacketSyncBauble(player, slot), (EntityPlayerMP) player);
 							break addCursor;
 						}
 
 					addCursor(lokiRing, relX, relY, relZ);
-					if(player instanceof EntityPlayerMP)
-						PacketHandler.INSTANCE.sendTo(new PacketSyncBauble(player, slot), (EntityPlayerMP) player);
+					if(player instanceof EntityPlayerMP) {}
+						//PacketHandler.INSTANCE.sendTo(new PacketSyncBauble(player, slot), (EntityPlayerMP) player);
 				}
 				}
 			}
@@ -161,10 +158,12 @@ public class ItemLokiRing extends ItemRelicBauble implements IExtendedWireframeC
 		}
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack arg0) {
 		return BaubleType.RING;
 	}
+	*/
 
 	@Override
 	public void onUnequipped(ItemStack stack, EntityLivingBase player) {
@@ -207,10 +206,14 @@ public class ItemLokiRing extends ItemRelicBauble implements IExtendedWireframeC
 	}
 
 	private static ItemStack getLokiRing(EntityPlayer player) {
+		/*
 		InventoryBaubles baubles = PlayerHandler.getPlayerBaubles(player);
 		ItemStack stack1 = baubles.getStackInSlot(1);
 		ItemStack stack2 = baubles.getStackInSlot(2);
 		return isLokiRing(stack1) ? stack1 : isLokiRing(stack2) ? stack2 : null;
+		*/
+
+		return null;
 	}
 
 	private static boolean isLokiRing(ItemStack stack) {

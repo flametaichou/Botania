@@ -43,11 +43,6 @@ import vazkii.botania.common.Botania;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.lib.LibItemNames;
 import vazkii.botania.common.lib.LibObfuscation;
-import baubles.api.BaubleType;
-import baubles.common.container.InventoryBaubles;
-import baubles.common.lib.PlayerHandler;
-import baubles.common.network.PacketHandler;
-import baubles.common.network.PacketSyncBauble;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -143,8 +138,8 @@ public class ItemItemFinder extends ItemBauble implements IBaubleRender {
 				} else if(e instanceof EntityPlayer) {
 					EntityPlayer player_ = (EntityPlayer) e;
 					InventoryPlayer inv = player_.inventory;
-					InventoryBaubles binv = PlayerHandler.getPlayerBaubles(player_);
-					if(scanInventory(inv, pstack) || scanInventory(binv, pstack))
+					//InventoryBaubles binv = PlayerHandler.getPlayerBaubles(player_);
+					if(scanInventory(inv, pstack))
 						positionsBuilder.append(player_.getEntityId()).append(";");
 
 				} else if(e instanceof EntityVillager) {
@@ -188,7 +183,7 @@ public class ItemItemFinder extends ItemBauble implements IBaubleRender {
 		String positions = positionsBuilder.toString();
 		if(!current.equals(positions)) {
 			ItemNBTHelper.setString(stack, TAG_POSITIONS, positions);
-			PacketHandler.INSTANCE.sendToAll(new PacketSyncBauble(player, 0));
+			//PacketHandler.INSTANCE.sendToAll(new PacketSyncBauble(player, 0));
 		}
 	}
 
@@ -209,10 +204,12 @@ public class ItemItemFinder extends ItemBauble implements IBaubleRender {
 		return false;
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack arg0) {
 		return BaubleType.AMULET;
 	}
+	*/
 
 	@Override
 	@SideOnly(Side.CLIENT)

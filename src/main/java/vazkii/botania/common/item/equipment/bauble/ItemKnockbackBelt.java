@@ -23,7 +23,6 @@ import org.lwjgl.opengl.GL11;
 import vazkii.botania.api.item.IBaubleRender;
 import vazkii.botania.client.lib.LibResources;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
 
 import com.google.common.collect.Multimap;
 
@@ -39,10 +38,12 @@ public class ItemKnockbackBelt extends ItemBaubleModifier implements IBaubleRend
 		super(LibItemNames.KNOCKBACK_BELT);
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack itemstack) {
 		return BaubleType.BELT;
 	}
+	*/
 
 	@Override
 	void fillModifiers(Multimap<String, AttributeModifier> attributes, ItemStack stack) {

@@ -33,7 +33,6 @@ import vazkii.botania.common.achievement.ModAchievements;
 import vazkii.botania.common.crafting.recipe.AesirRingRecipe;
 import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -80,10 +79,12 @@ public class ItemAesirRing extends ItemRelicBauble implements IExtendedWireframe
 		((ItemOdinRing) ModItems.odinRing).onValidPlayerWornTick(stack, player);
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack arg0) {
 		return BaubleType.RING;
 	}
+	*/
 
 	@Override
 	public List<ChunkCoordinates> getWireframesToDraw(EntityPlayer player, ItemStack stack) {

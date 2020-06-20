@@ -25,7 +25,6 @@ import org.lwjgl.opengl.GL11;
 import vazkii.botania.api.item.IBaubleRender;
 import vazkii.botania.client.core.helper.IconHelper;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
 
 public class ItemLavaPendant extends ItemBauble implements IBaubleRender {
 
@@ -41,10 +40,12 @@ public class ItemLavaPendant extends ItemBauble implements IBaubleRender {
 			player.extinguish();
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack itemstack) {
 		return BaubleType.AMULET;
 	}
+	*/
 
 	@Override
 	public void registerIcons(IIconRegister par1IconRegister) {

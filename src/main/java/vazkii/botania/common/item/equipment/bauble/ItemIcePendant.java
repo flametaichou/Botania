@@ -36,7 +36,6 @@ import org.lwjgl.opengl.GL11;
 import vazkii.botania.api.item.IBaubleRender;
 import vazkii.botania.client.core.helper.IconHelper;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
 
 public class ItemIcePendant extends ItemBauble implements IBaubleRender {
 
@@ -47,10 +46,12 @@ public class ItemIcePendant extends ItemBauble implements IBaubleRender {
 		super(LibItemNames.ICE_PENDANT);
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack itemstack) {
 		return BaubleType.AMULET;
 	}
+	*/
 
 	@Override
 	public void registerIcons(IIconRegister par1IconRegister) {

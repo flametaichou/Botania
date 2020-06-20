@@ -27,8 +27,6 @@ import org.lwjgl.opengl.GL11;
 
 import vazkii.botania.api.item.IBaubleRender;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
-import baubles.common.lib.PlayerHandler;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
@@ -45,6 +43,8 @@ public class ItemGoldenLaurel extends ItemBauble implements IBaubleRender {
 	public void onPlayerDeath(LivingDeathEvent event) {
 		if(event.entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.entity;
+
+			/*
 			ItemStack amulet = PlayerHandler.getPlayerBaubles(player).getStackInSlot(0);
 
 			if(amulet != null && amulet.getItem() == this) {
@@ -55,13 +55,16 @@ public class ItemGoldenLaurel extends ItemBauble implements IBaubleRender {
 				player.worldObj.playSoundAtEntity(player, "botania:goldenLaurel", 1F, 0.3F);
 				PlayerHandler.getPlayerBaubles(player).setInventorySlotContents(0, null);
 			}
+			*/
 		}
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack itemstack) {
 		return BaubleType.AMULET;
 	}
+	*/
 
 	@Override
 	@SideOnly(Side.CLIENT)

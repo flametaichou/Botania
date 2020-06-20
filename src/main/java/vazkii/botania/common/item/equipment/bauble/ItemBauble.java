@@ -27,16 +27,12 @@ import vazkii.botania.common.achievement.ModAchievements;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.entity.EntityDoppleganger;
 import vazkii.botania.common.item.ItemMod;
-import baubles.api.BaubleType;
-import baubles.api.IBauble;
-import baubles.common.container.InventoryBaubles;
-import baubles.common.lib.PlayerHandler;
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @Optional.Interface(modid = "Thaumcraft", iface = "thaumcraft.api.IRunicArmor")
-public abstract class ItemBauble extends ItemMod implements IBauble, ICosmeticAttachable, IPhantomInkable, IRunicArmor {
+public abstract class ItemBauble extends ItemMod implements ICosmeticAttachable, IPhantomInkable, IRunicArmor {
 
 	private static final String TAG_HASHCODE = "playerHashcode";
 	private static final String TAG_BAUBLE_UUID_MOST = "baubleUUIDMost";
@@ -56,6 +52,7 @@ public abstract class ItemBauble extends ItemMod implements IBauble, ICosmeticAt
 			return par1ItemStack;
 
 		if(canEquip(par1ItemStack, par3EntityPlayer)) {
+			/*
 			InventoryBaubles baubles = PlayerHandler.getPlayerBaubles(par3EntityPlayer);
 			for(int i = 0; i < baubles.getSizeInventory(); i++) {
 				if(baubles.isItemValidForSlot(i, par1ItemStack)) {
@@ -75,6 +72,7 @@ public abstract class ItemBauble extends ItemMod implements IBauble, ICosmeticAt
 					}
 				}
 			}
+			*/
 		}
 
 		return par1ItemStack;
@@ -89,8 +87,8 @@ public abstract class ItemBauble extends ItemMod implements IBauble, ICosmeticAt
 	}
 
 	public void addHiddenTooltip(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		BaubleType type = getBaubleType(par1ItemStack);
-		addStringToTooltip(StatCollector.translateToLocal("botania.baubletype." + type.name().toLowerCase()), par3List);
+		//BaubleType type = getBaubleType(par1ItemStack);
+		//addStringToTooltip(StatCollector.translateToLocal("botania.baubletype." + type.name().toLowerCase()), par3List);
 
 		String key = vazkii.botania.client.core.helper.RenderHelper.getKeyDisplayString("Baubles Inventory");
 
@@ -109,17 +107,17 @@ public abstract class ItemBauble extends ItemMod implements IBauble, ICosmeticAt
 		tooltip.add(s.replaceAll("&", "\u00a7"));
 	}
 
-	@Override
+	//@Override
 	public boolean canEquip(ItemStack stack, EntityLivingBase player) {
 		return true;
 	}
 
-	@Override
+	//@Override
 	public boolean canUnequip(ItemStack stack, EntityLivingBase player) {
 		return true;
 	}
 
-	@Override
+	//@Override
 	public void onWornTick(ItemStack stack, EntityLivingBase player) {
 		if(getLastPlayerHashcode(stack) != player.hashCode()) {
 			onEquippedOrLoadedIntoWorld(stack, player);
@@ -127,7 +125,7 @@ public abstract class ItemBauble extends ItemMod implements IBauble, ICosmeticAt
 		}
 	}
 
-	@Override
+	//@Override
 	public void onEquipped(ItemStack stack, EntityLivingBase player) {
 		if(player != null) {
 			if(!player.worldObj.isRemote)
@@ -141,12 +139,12 @@ public abstract class ItemBauble extends ItemMod implements IBauble, ICosmeticAt
 		}
 	}
 
-	public void onEquippedOrLoadedIntoWorld(ItemStack stack, EntityLivingBase player) {
+	//@Override
+	public void onUnequipped(ItemStack stack, EntityLivingBase player) {
 		// NO-OP
 	}
 
-	@Override
-	public void onUnequipped(ItemStack stack, EntityLivingBase player) {
+	public void onEquippedOrLoadedIntoWorld(ItemStack stack, EntityLivingBase player) {
 		// NO-OP
 	}
 

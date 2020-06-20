@@ -31,7 +31,6 @@ import vazkii.botania.api.mana.ITinyPlanetExcempt;
 import vazkii.botania.common.block.ModBlocks;
 import vazkii.botania.common.core.helper.Vector3;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
 
 public class ItemTinyPlanet extends ItemBauble implements IBaubleRender {
 
@@ -41,10 +40,12 @@ public class ItemTinyPlanet extends ItemBauble implements IBaubleRender {
 		super(LibItemNames.TINY_PLANET);
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack itemstack) {
 		return BaubleType.AMULET;
 	}
+	*/
 
 	@Override
 	public void onWornTick(ItemStack stack, EntityLivingBase player) {

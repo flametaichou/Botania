@@ -31,8 +31,6 @@ import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.client.lib.LibResources;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
-import baubles.common.lib.PlayerHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.relauncher.Side;
@@ -65,10 +63,12 @@ public class ItemTravelBelt extends ItemBauble implements IBaubleRender, IManaUs
 		this.fallBuffer = fallBuffer;
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack itemstack) {
 		return BaubleType.BELT;
 	}
+	*/
 
 	@SubscribeEvent
 	public void updatePlayerStepStatus(LivingUpdateEvent event) {
@@ -76,7 +76,8 @@ public class ItemTravelBelt extends ItemBauble implements IBaubleRender, IManaUs
 			EntityPlayer player = (EntityPlayer) event.entityLiving;
 			String s = playerStr(player);
 
-			ItemStack belt = PlayerHandler.getPlayerBaubles(player).getStackInSlot(3);
+			//ItemStack belt = PlayerHandler.getPlayerBaubles(player).getStackInSlot(3);
+			ItemStack belt = null;
 			if(playersWithStepup.contains(s)) {
 				if(shouldPlayerHaveStepup(player)) {
 					ItemTravelBelt beltItem = (ItemTravelBelt) belt.getItem();
@@ -121,7 +122,8 @@ public class ItemTravelBelt extends ItemBauble implements IBaubleRender, IManaUs
 	public void onPlayerJump(LivingJumpEvent event) {
 		if(event.entityLiving instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.entityLiving;
-			ItemStack belt = PlayerHandler.getPlayerBaubles(player).getStackInSlot(3);
+			//ItemStack belt = PlayerHandler.getPlayerBaubles(player).getStackInSlot(3);
+			ItemStack belt = null;
 
 			if(belt != null && belt.getItem() instanceof ItemTravelBelt && ManaItemHandler.requestManaExact(belt, player, COST, false)) {
 				player.motionY += ((ItemTravelBelt) belt.getItem()).jump;
@@ -131,7 +133,8 @@ public class ItemTravelBelt extends ItemBauble implements IBaubleRender, IManaUs
 	}
 
 	private boolean shouldPlayerHaveStepup(EntityPlayer player) {
-		ItemStack armor = PlayerHandler.getPlayerBaubles(player).getStackInSlot(3);
+		//ItemStack armor = PlayerHandler.getPlayerBaubles(player).getStackInSlot(3);
+		ItemStack armor = null;
 		return armor != null && armor.getItem() instanceof ItemTravelBelt && ManaItemHandler.requestManaExact(armor, player, COST, false);
 	}
 

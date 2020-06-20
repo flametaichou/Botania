@@ -13,7 +13,6 @@ package vazkii.botania.client.gui.box;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import vazkii.botania.api.mana.IManaItem;
-import baubles.api.IBauble;
 
 public class SlotAnyBauble extends Slot {
 
@@ -29,9 +28,10 @@ public class SlotAnyBauble extends Slot {
 		inv.setInventorySlotContents(slotNumber, newStack);
 	}
 
+	/*
 	@Override
 	public boolean isItemValid(ItemStack stack) {
 		return stack.getItem() instanceof IBauble || stack.getItem() instanceof IManaItem;
 	}
-
+	*/
 }

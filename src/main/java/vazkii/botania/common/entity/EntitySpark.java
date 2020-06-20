@@ -36,7 +36,6 @@ import vazkii.botania.api.mana.spark.SparkHelper;
 import vazkii.botania.common.Botania;
 import vazkii.botania.common.core.helper.Vector3;
 import vazkii.botania.common.item.ModItems;
-import baubles.common.lib.PlayerHandler;
 
 public class EntitySpark extends Entity implements ISparkEntity {
 
@@ -99,7 +98,7 @@ public class EntitySpark extends Entity implements ISparkEntity {
 					List<ItemStack> stacks = new ArrayList();
 					stacks.addAll(Arrays.asList(player.inventory.mainInventory));
 					stacks.addAll(Arrays.asList(player.inventory.armorInventory));
-					stacks.addAll(Arrays.asList(PlayerHandler.getPlayerBaubles(player).stackList));
+					//stacks.addAll(Arrays.asList(PlayerHandler.getPlayerBaubles(player).stackList));
 
 					for(ItemStack stack : stacks) {
 						if(stack == null || !(stack.getItem() instanceof IManaItem))

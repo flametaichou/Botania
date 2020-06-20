@@ -68,9 +68,6 @@ import vazkii.botania.common.lexicon.page.PageMultiblock;
 import vazkii.botania.common.lexicon.page.PagePetalRecipe;
 import vazkii.botania.common.lexicon.page.PageRuneRecipe;
 import vazkii.botania.common.lexicon.page.PageText;
-import baubles.common.lib.PlayerHandler;
-import baubles.common.network.PacketHandler;
-import baubles.common.network.PacketSyncBauble;
 import buildcraft.api.transport.IPipeTile;
 import cpw.mods.fml.common.Optional;
 
@@ -187,7 +184,8 @@ public class InternalMethodHandler extends DummyMethodHandler {
 
 	@Override
 	public IInventory getBaublesInventory(EntityPlayer player) {
-		return PlayerHandler.getPlayerBaubles(player);
+		//return PlayerHandler.getPlayerBaubles(player);
+		return null;
 	}
 
 	@Override
@@ -264,8 +262,9 @@ public class InternalMethodHandler extends DummyMethodHandler {
 
 	@Override
 	public void sendBaubleUpdatePacket(EntityPlayer player, int slot) {
-		if(player instanceof EntityPlayerMP)
-			PacketHandler.INSTANCE.sendTo(new PacketSyncBauble(player, slot), (EntityPlayerMP) player);
+		if(player instanceof EntityPlayerMP) {
+			//PacketHandler.INSTANCE.sendTo(new PacketSyncBauble(player, slot), (EntityPlayerMP) player);
+		}
 	}
 	
 

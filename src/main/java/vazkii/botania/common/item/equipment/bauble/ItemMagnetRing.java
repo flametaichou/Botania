@@ -33,9 +33,6 @@ import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.core.helper.MathHelper;
 import vazkii.botania.common.core.helper.Vector3;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
-import baubles.common.container.InventoryBaubles;
-import baubles.common.lib.PlayerHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -77,6 +74,7 @@ public class ItemMagnetRing extends ItemBauble {
 
 	@SubscribeEvent
 	public void onTossItem(ItemTossEvent event) {
+		/*
 		InventoryBaubles inv = PlayerHandler.getPlayerBaubles(event.player);
 		for(int i = 0; i < inv.getSizeInventory(); i++) {
 			ItemStack stack = inv.getStackInSlot(i);
@@ -85,6 +83,7 @@ public class ItemMagnetRing extends ItemBauble {
 				BotaniaAPI.internalHandler.sendBaubleUpdatePacket(event.player, i);
 			}
 		}
+		*/
 	}
 
 	@Override
@@ -161,10 +160,10 @@ public class ItemMagnetRing extends ItemBauble {
 		BLACKLIST.add(item);
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack arg0) {
 		return BaubleType.RING;
 	}
-
-
+	*/
 }

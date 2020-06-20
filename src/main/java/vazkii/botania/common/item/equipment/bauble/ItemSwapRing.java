@@ -20,7 +20,6 @@ import vazkii.botania.api.item.ISortableTool;
 import vazkii.botania.api.item.ISortableTool.ToolType;
 import vazkii.botania.common.item.equipment.tool.ToolCommons;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
 
 public class ItemSwapRing extends ItemBauble {
 
@@ -85,9 +84,11 @@ public class ItemSwapRing extends ItemBauble {
 		}
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack arg0) {
 		return BaubleType.RING;
 	}
+	*/
 
 }

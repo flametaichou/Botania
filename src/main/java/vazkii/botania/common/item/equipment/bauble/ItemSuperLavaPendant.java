@@ -27,7 +27,6 @@ import vazkii.botania.api.item.IBaubleRender;
 import vazkii.botania.client.core.helper.IconHelper;
 import vazkii.botania.common.lib.LibItemNames;
 import vazkii.botania.common.lib.LibObfuscation;
-import baubles.api.BaubleType;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class ItemSuperLavaPendant extends ItemBauble implements IBaubleRender {
@@ -52,10 +51,12 @@ public class ItemSuperLavaPendant extends ItemBauble implements IBaubleRender {
 		ReflectionHelper.setPrivateValue(Entity.class, entity, immune, LibObfuscation.IS_IMMUNE_TO_FIRE);
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack itemstack) {
 		return BaubleType.AMULET;
 	}
+	*/
 
 	@Override
 	public void registerIcons(IIconRegister par1IconRegister) {

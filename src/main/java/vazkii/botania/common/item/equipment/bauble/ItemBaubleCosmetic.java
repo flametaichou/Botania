@@ -34,7 +34,6 @@ import vazkii.botania.client.core.helper.IconHelper;
 import vazkii.botania.common.crafting.recipe.CosmeticAttachRecipe;
 import vazkii.botania.common.crafting.recipe.CosmeticRemoveRecipe;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemBaubleCosmetic extends ItemBauble implements ICosmeticBauble {
@@ -81,10 +80,12 @@ public class ItemBaubleCosmetic extends ItemBauble implements ICosmeticBauble {
 		super.addHiddenTooltip(par1ItemStack, par2EntityPlayer, par3List, par4);
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack arg0) {
 		return BaubleType.AMULET;
 	}
+	*/
 
 	@Override
 	public void onPlayerBaubleRender(ItemStack stack, RenderPlayerEvent event, RenderType type) {

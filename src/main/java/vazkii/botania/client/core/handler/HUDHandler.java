@@ -65,7 +65,6 @@ import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.item.equipment.bauble.ItemFlightTiara;
 import vazkii.botania.common.item.equipment.bauble.ItemMonocle;
 import vazkii.botania.common.lib.LibObfuscation;
-import baubles.common.lib.PlayerHandler;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.ReflectionHelper;
@@ -81,7 +80,8 @@ public final class HUDHandler {
 
 		if(event.type == ElementType.HEALTH) {
 			profiler.startSection("botania-hud");
-			ItemStack amulet = PlayerHandler.getPlayerBaubles(mc.thePlayer).getStackInSlot(0);
+			//ItemStack amulet = PlayerHandler.getPlayerBaubles(mc.thePlayer).getStackInSlot(0);
+			ItemStack amulet = null;
 			if(amulet != null && amulet.getItem() == ModItems.flightTiara) {
 				profiler.startSection("flugelTiara");
 				ItemFlightTiara.renderHUD(event.resolution, mc.thePlayer, amulet);
@@ -172,17 +172,19 @@ public final class HUDHandler {
 			boolean anyRequest = false;
 			boolean creative = false;
 
+
 			IInventory mainInv = player.inventory;
-			IInventory baublesInv = PlayerHandler.getPlayerBaubles(player);
+			//IInventory baublesInv = PlayerHandler.getPlayerBaubles(player);
 
 			int invSize = mainInv.getSizeInventory();
 			int size = invSize;
-			if(baublesInv != null)
-				size += baublesInv.getSizeInventory();
+			//if(baublesInv != null) size += baublesInv.getSizeInventory();
 
 			for(int i = 0; i < size; i++) {
-				boolean useBaubles = i >= invSize;
-				IInventory inv = useBaubles ? baublesInv : mainInv;
+				//boolean useBaubles = i >= invSize;
+				boolean useBaubles = false;
+				//IInventory inv = useBaubles ? baublesInv : mainInv;
+				IInventory inv = mainInv;
 				ItemStack stack = inv.getStackInSlot(i - (useBaubles ? invSize : 0));
 
 				if(stack != null) {

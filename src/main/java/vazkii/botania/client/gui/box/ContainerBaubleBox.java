@@ -17,16 +17,11 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import vazkii.botania.api.mana.IManaItem;
 import vazkii.botania.client.gui.SlotLocked;
-import baubles.api.BaubleType;
-import baubles.api.IBauble;
-import baubles.common.container.InventoryBaubles;
-import baubles.common.container.SlotBauble;
-import baubles.common.lib.PlayerHandler;
 
 public class ContainerBaubleBox extends Container {
 
 	InventoryBaubleBox baubleBoxInv;
-	InventoryBaubles baubles;
+	IInventory baubles;
 
 	public ContainerBaubleBox(EntityPlayer player) {
 		int i;
@@ -36,15 +31,15 @@ public class ContainerBaubleBox extends Container {
 		IInventory playerInv = player.inventory;
 		baubleBoxInv = new InventoryBaubleBox(player, slot);
 
-		baubles = new InventoryBaubles(player);
-		baubles.setEventHandler(this);
+		baubles = playerInv;
+		//baubles.setEventHandler(this);
 		if(!player.worldObj.isRemote)
-			baubles.stackList = PlayerHandler.getPlayerBaubles(player).stackList;
+			//baubles.stackList = PlayerHandler.getPlayerBaubles(player).stackList;
 
-		addSlotToContainer(new SlotBauble(baubles, BaubleType.AMULET, 0, 8, 8 + 0 * 18));
-		addSlotToContainer(new SlotBauble(baubles, BaubleType.RING,   1, 8, 8 + 1 * 18));
-		addSlotToContainer(new SlotBauble(baubles, BaubleType.RING,   2, 8, 8 + 2 * 18));
-		addSlotToContainer(new SlotBauble(baubles, BaubleType.BELT,   3, 8, 8 + 3 * 18));
+		//addSlotToContainer(new SlotBauble(baubles, BaubleType.AMULET, 0, 8, 8 + 0 * 18));
+		//addSlotToContainer(new SlotBauble(baubles, BaubleType.RING,   1, 8, 8 + 1 * 18));
+		//addSlotToContainer(new SlotBauble(baubles, BaubleType.RING,   2, 8, 8 + 2 * 18));
+		//addSlotToContainer(new SlotBauble(baubles, BaubleType.BELT,   3, 8, 8 + 3 * 18));
 
 		for(i = 0; i < 4; ++i)
 			for(j = 0; j < 6; ++j) {
@@ -78,13 +73,13 @@ public class ContainerBaubleBox extends Container {
 		super.onContainerClosed(player);
 		baubleBoxInv.pushInventory();
 
-		if(!player.worldObj.isRemote)
-			PlayerHandler.setPlayerBaubles(player, baubles);
+		if(!player.worldObj.isRemote) {}
+			//PlayerHandler.setPlayerBaubles(player, baubles);
 	}
 
 	@Override
 	public void putStacksInSlots(ItemStack[] p_75131_1_) {
-		baubles.blockEvents = true;
+		//baubles.blockEvents = true;
 		super.putStacksInSlots(p_75131_1_);
 	}
 
@@ -102,7 +97,7 @@ public class ContainerBaubleBox extends Container {
 				if(!mergeItemStack(itemstack1, 28, 64, true))
 					return null;
 			} else {
-				if(itemstack1 != null && (itemstack1.getItem() instanceof IBauble || itemstack1.getItem() instanceof IManaItem) && !mergeItemStack(itemstack1, 4, 28, false))
+				if(itemstack1 != null && (itemstack1.getItem() instanceof IManaItem) && !mergeItemStack(itemstack1, 4, 28, false))
 					return null;
 			}
 

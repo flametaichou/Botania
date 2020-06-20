@@ -27,9 +27,6 @@ import vazkii.botania.client.lib.LibResources;
 import vazkii.botania.common.Botania;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
-import baubles.common.container.InventoryBaubles;
-import baubles.common.lib.PlayerHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -56,8 +53,9 @@ public class ItemHolyCloak extends ItemBauble implements IBaubleRender {
 	public void onPlayerDamage(LivingHurtEvent event) {
 		if(event.entityLiving instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.entityLiving;
-			InventoryBaubles baubles = PlayerHandler.getPlayerBaubles(player);
-			ItemStack belt = baubles.getStackInSlot(3);
+			//InventoryBaubles baubles = PlayerHandler.getPlayerBaubles(player);
+			//ItemStack belt = baubles.getStackInSlot(3);
+			ItemStack belt = null;
 			if(belt != null && belt.getItem() instanceof ItemHolyCloak && !isInEffect(belt)) {
 				ItemHolyCloak cloak = (ItemHolyCloak) belt.getItem();
 				int cooldown = getCooldown(belt);
@@ -99,10 +97,12 @@ public class ItemHolyCloak extends ItemBauble implements IBaubleRender {
 		return 200;
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack arg0) {
 		return BaubleType.BELT;
 	}
+	*/
 
 	public static int getCooldown(ItemStack stack) {
 		return ItemNBTHelper.getInt(stack, TAG_COOLDOWN, 0);

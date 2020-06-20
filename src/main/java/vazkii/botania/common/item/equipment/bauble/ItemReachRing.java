@@ -14,7 +14,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import vazkii.botania.common.Botania;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
 
 public class ItemReachRing extends ItemBauble {
 
@@ -32,9 +31,11 @@ public class ItemReachRing extends ItemBauble {
 		Botania.proxy.setExtraReach(player, -3.5F);
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack arg0) {
 		return BaubleType.RING;
 	}
+	*/
 
 }

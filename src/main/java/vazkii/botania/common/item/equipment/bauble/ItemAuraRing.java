@@ -16,7 +16,6 @@ import net.minecraft.item.ItemStack;
 import vazkii.botania.api.mana.IManaGivingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
 
 public class ItemAuraRing extends ItemBauble implements IManaGivingItem {
 
@@ -39,9 +38,11 @@ public class ItemAuraRing extends ItemBauble implements IManaGivingItem {
 		return 10;
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack itemstack) {
 		return BaubleType.RING;
 	}
+	*/
 
 }

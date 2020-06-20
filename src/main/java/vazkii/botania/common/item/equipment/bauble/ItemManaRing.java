@@ -21,7 +21,6 @@ import vazkii.botania.api.mana.IManaItem;
 import vazkii.botania.api.mana.IManaTooltipDisplay;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
 
 public class ItemManaRing extends ItemBauble implements IManaItem, IManaTooltipDisplay {
 
@@ -40,10 +39,12 @@ public class ItemManaRing extends ItemBauble implements IManaItem, IManaTooltipD
 		setMaxDamage(1000);
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack itemstack) {
 		return BaubleType.RING;
 	}
+	*/
 
 	@Override
 	public void getSubItems(Item par1, CreativeTabs par2CreativeTabs, List par3List) {

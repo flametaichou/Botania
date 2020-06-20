@@ -59,8 +59,6 @@ import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.core.helper.Vector3;
 import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
-import baubles.common.lib.PlayerHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
@@ -94,10 +92,12 @@ public class ItemFlightTiara extends ItemBauble implements IManaUsingItem, IBaub
 		setHasSubtypes(true);
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack arg0) {
 		return BaubleType.AMULET;
 	}
+	*/
 
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -222,7 +222,8 @@ public class ItemFlightTiara extends ItemBauble implements IManaUsingItem, IBaub
 	public void updatePlayerFlyStatus(LivingUpdateEvent event) {
 		if(event.entityLiving instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.entityLiving;
-			ItemStack tiara = PlayerHandler.getPlayerBaubles(player).getStackInSlot(0);
+			//ItemStack tiara = PlayerHandler.getPlayerBaubles(player).getStackInSlot(0);
+			ItemStack tiara = null;
 			int left = ItemNBTHelper.getInt(tiara, TAG_TIME_LEFT, MAX_FLY_TIME);
 
 			if(playersWithFlight.contains(playerStr(player))) {
@@ -320,7 +321,9 @@ public class ItemFlightTiara extends ItemBauble implements IManaUsingItem, IBaub
 	}
 
 	private boolean shouldPlayerHaveFlight(EntityPlayer player) {
-		ItemStack armor = PlayerHandler.getPlayerBaubles(player).getStackInSlot(0);
+		//ItemStack armor = PlayerHandler.getPlayerBaubles(player).getStackInSlot(0);
+
+		ItemStack armor = null;
 		if(armor != null && armor.getItem() == this) {
 			int left = ItemNBTHelper.getInt(armor, TAG_TIME_LEFT, MAX_FLY_TIME);
 			boolean flying = ItemNBTHelper.getBoolean(armor, TAG_FLYING, false);

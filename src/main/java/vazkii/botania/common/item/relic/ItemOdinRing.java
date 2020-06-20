@@ -24,9 +24,6 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import vazkii.botania.common.core.handler.ConfigHandler;
 import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.lib.LibItemNames;
-import baubles.api.BaubleType;
-import baubles.common.container.InventoryBaubles;
-import baubles.common.lib.PlayerHandler;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -70,16 +67,22 @@ public class ItemOdinRing extends ItemRelicBauble {
 		}
 	}
 
+	/*
 	@Override
 	public BaubleType getBaubleType(ItemStack arg0) {
 		return BaubleType.RING;
 	}
+	*/
 
 	public static ItemStack getOdinRing(EntityPlayer player) {
+		/*
 		InventoryBaubles baubles = PlayerHandler.getPlayerBaubles(player);
 		ItemStack stack1 = baubles.getStackInSlot(1);
 		ItemStack stack2 = baubles.getStackInSlot(2);
 		return isOdinRing(stack1) ? stack1 : isOdinRing(stack2) ? stack2 : null;
+		*/
+		
+		return null;
 	}
 
 	private static boolean isOdinRing(ItemStack stack) {

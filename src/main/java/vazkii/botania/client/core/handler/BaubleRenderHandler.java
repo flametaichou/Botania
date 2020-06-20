@@ -18,6 +18,7 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -34,8 +35,6 @@ import vazkii.botania.api.item.IPhantomInkable;
 import vazkii.botania.common.core.handler.ConfigHandler;
 import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.item.equipment.armor.terrasteel.ItemTerrasteelHelm;
-import baubles.common.container.InventoryBaubles;
-import baubles.common.lib.PlayerHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public final class BaubleRenderHandler {
@@ -46,9 +45,11 @@ public final class BaubleRenderHandler {
 			return;
 
 		EntityPlayer player = event.entityPlayer;
-		InventoryBaubles inv = PlayerHandler.getPlayerBaubles(player);
+		//InventoryBaubles inv = PlayerHandler.getPlayerBaubles(player);
+		IInventory inv = player.inventory;
 
 		dispatchRenders(inv, event, RenderType.BODY);
+		// TODO
 		if(inv.getStackInSlot(3) != null)
 			renderManaTablet(event);
 
@@ -70,7 +71,7 @@ public final class BaubleRenderHandler {
 		GL11.glPopMatrix();
 	}
 
-	private void dispatchRenders(InventoryBaubles inv, RenderPlayerEvent event, RenderType type) {
+	private void dispatchRenders(IInventory inv, RenderPlayerEvent event, RenderType type) {
 		for(int i = 0; i < inv.getSizeInventory(); i++) {
 			ItemStack stack = inv.getStackInSlot(i);
 			if(stack != null) {

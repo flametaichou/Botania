@@ -11,8 +11,6 @@ import vazkii.botania.api.item.IPixieSpawner;
 import vazkii.botania.common.entity.EntityPixie;
 import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.item.equipment.armor.elementium.ItemElementiumHelm;
-import baubles.common.container.InventoryBaubles;
-import baubles.common.lib.PlayerHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class PixieHandler {
@@ -27,9 +25,12 @@ public class PixieHandler {
 			for (ItemStack element : player.inventory.armorInventory)
 				chance += getChance(element);
 
+			/*
 			InventoryBaubles baubles = PlayerHandler.getPlayerBaubles(player);
 			for(int i = 0; i < baubles.getSizeInventory(); i++)
 				chance += getChance(baubles.getStackInSlot(i));
+
+			*/
 
 			if(Math.random() < chance) {
 				EntityPixie pixie = new EntityPixie(player.worldObj);
